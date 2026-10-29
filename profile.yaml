@@ -1,28 +1,27 @@
 # Who Duo is working for. Edit freely; this is the only input Phase 0 needs.
-# Keep sensitive details (addresses, card numbers) OUT of this file. The model sees it.
 
-name: Tricia
+name: William
 location:
-  city: "CHANGE ME, e.g. Sydney"
-  country: "CHANGE ME, e.g. Australia"
-  timezone: "CHANGE ME, e.g. Australia/Sydney"
+  city: "Cape Town"
+  country: "South Africa"
+  timezone: "Africa/Johannesburg"
 
 interests:
   - kind: sports_team
-    sport: cricket
-    team: "CHANGE ME, e.g. Australia men's national team"
+    sport: rugby
+    team: "The Springboks — South Africa's rugby team"
     priority: high
-    notes: "International matches only. Tests and ODIs preferred over T20s."
+    notes: "International matches only. Tournaments over once-off matches"
 
 budgets:
   event_ticket:
-    max_per_ticket: 120
-    currency: AUD
+    max_per_ticket: 1000
+    currency: ZAR
 
 preferences:
-  seating: ["shaded", "aisle", "not behind the sightscreen"]
-  companions: 1          # how many extra tickets to propose (so 2 total)
-  travel_radius_km: 50   # how far from home is reasonable for an event
+  seating: ["shaded", "aisle", "not behind the sightscreen", "Quieter area"]
+  companions: 4 # how many extra tickets to propose (so 2 total)
+  travel_radius_km: 50 # how far from home is reasonable for an event
 
 rules:
   - "Never spend money without asking."
