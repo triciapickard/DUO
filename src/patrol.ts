@@ -15,6 +15,7 @@ import { betaZodTool } from "@anthropic-ai/sdk/helpers/beta/zod";
 import type { BetaMessage } from "@anthropic-ai/sdk/resources/beta/messages/messages";
 import { loadProfile, type Profile } from "./profile.js";
 import { ProposalSchema, type Proposal } from "./proposal.js";
+import { toStrictSchema } from "./strict-schema.js";
 
 const MODEL = "claude-opus-5-5";
 const MAX_ITERATIONS = 20;
@@ -112,6 +113,11 @@ async function main(): Promise<void> {
       return `Filed proposal #${proposals.length}: ${proposal.title}`;
     },
   });
+  // Strict mode rejects the length/range keywords Zod emits; send a trimmed
+  // schema. Zod still enforces them client-side before `run` is called.
+  // BetaRunnableTool is a union type, so narrow to the one field we touch.
+  const schemaHolder = fileProposal as unknown as { input_schema: Record<string, unknown> };
+  schemaHolder.input_schema = toStrictSchema(schemaHolder.input_schema);
 
   const now = new Date();
   const localNow = now.toLocaleString("en-GB", { timeZone: profile.location.timezone, dateStyle: "full", timeStyle: "short" });
