@@ -20,7 +20,7 @@ budgets:
 
 preferences:
   seating: ["shaded", "aisle", "not behind the sightscreen", "Quieter area"]
-  companions: 4 # how many extra tickets to propose (so 2 total)
+  companions: 4 # how many extra tickets to propose (so 5 total)
   travel_radius_km: 50 # how far from home is reasonable for an event
 
 rules:
